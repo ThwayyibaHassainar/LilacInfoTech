@@ -23,22 +23,22 @@
 <body class="antialiased">
 
 
-<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-12 sm:pt-0">
+<div class="justify-center items justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-12 sm:pt-0">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <div class="max-w-6xl mx-auto sm:px-12 lg:px-12">
+    <div class="max-w-6xl mx-auto ">
         <div>
-            <h4>Search</h4>
+            <br>
+            <h3>Search</h3>
 
             <p>
                 Search name / Designation / department
                </p>
-        </div>
-        <div class="flex justify-center pt-12 sm:justify-start sm:pt-0">
-            <input  type="text" class="form-controller" id="search" name="search" placeholder=" Search name / Designation / department">
+
         </div>
 
 
+    <input  type="text" class="form-controller" id="search" name="search" placeholder=" Search name / Designation / department">
 
                 <div id="data">
 
@@ -47,9 +47,9 @@
                                          @foreach ($users as $user)
                                             <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                                                 <div class="items-center">
-                                                     <td>{{ $user->name }}</td><br>
-                                                       <td>{{ $user->department_name }}</td><br>
-                                                    <td>{{ $user->designation_name }}</td>
+                                                     {{ $user->name }}<br>
+                                                       {{ $user->department_name }}<br>
+                                                    {{ $user->designation_name }}
                                                 </div>
 
                                             <div class="md-12">
@@ -64,14 +64,9 @@
                                     </div>
                                 </div>
 
-
                     <div class="blog-author d-flex align-items-center">
-                        <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
                         <div>
-                            <h4>All Rights Reserved to</h4>
 
-                            <p>
-                               Lilac Infotech Private Limited, KSITIL Special Ecnomic Zone, Seond Floor, Sahya Govt Cyber Park, Calict - 673016, Kerala, India</p>
                         </div>
                     </div>
 

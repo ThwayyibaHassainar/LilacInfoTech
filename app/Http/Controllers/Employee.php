@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class Employee extends Controller
 {
@@ -17,9 +16,11 @@ class Employee extends Controller
     {
         if ($request->ajax()) {
             $output = "";
-            $users = DB::table('user')->join('Department','user.fk_Department','=','Department.department_id')->
-                join('Designation','user.fk_Designation','=','Designation.designation_id')->
-            where('user.name', 'LIKE', '%' . $request->search . "%")->get();
+            $users = DB::table('user')->join('Department','user.fk_Department','=','Department.department_id')
+                ->join('Designation','user.fk_Designation','=','Designation.designation_id')
+                ->where('user.name', 'LIKE', '%' . $request->search . "%")
+                ->orwhere('Department.department_name', 'LIKE', '%' . $request->search . "%")
+                ->orwhere('Designation.designation_name', 'LIKE', '%' . $request->search . "%")->get();
             if ($users) {
                 foreach ($users as $key => $user) {
 
@@ -44,13 +45,8 @@ class Employee extends Controller
         ';
                 }
                 return Response($output.' <div class="blog-author d-flex align-items-center">
-                        <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
-                        <div>
-                            <h4>All Rights Reserved to</h4>
-
-                            <p>
-                               Lilac Infotech Private Limited, KSITIL Special Ecnomic Zone, Seond Floor, Sahya Govt Cyber Park, Calict - 673016, Kerala, India</p>
-                        </div>
+                        
+                        
                     </div>');
             }
         }
